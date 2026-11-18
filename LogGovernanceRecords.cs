@@ -67,7 +67,7 @@ namespace CB2DbQueryGovernance
             }
             catch(Exception ex)
             {
-                Console.WriteLine($"Error occurred while logging governance record: {ex.Message}");
+                //Console.WriteLine($"Error occurred while logging governance record: {ex.Message}");
                 return "ERROR";
 
             }

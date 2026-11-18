@@ -75,7 +75,7 @@ namespace CB2DbQueryGovernance
                     using JsonDocument document = JsonDocument.Parse(responseJson);
                     JsonElement root = document.RootElement;
 
-                    Console.WriteLine("\n--- Microsoft-Decision-1 Results ---");
+                    //Console.WriteLine("\n--- Microsoft-Decision-1 Results ---");
 
                     if (!root.TryGetProperty("answers", out JsonElement answers) ||
                         !answers.TryGetProperty("decision", out JsonElement answer) ||
@@ -97,7 +97,7 @@ namespace CB2DbQueryGovernance
 
                     if (bestChoice.Name is null ||bestChoice.Value.GetDouble() <= (bestChoice.Name == "ESCALATE" ? 0.6 : threshold))
                     {
-                        Console.WriteLine("Selected decision: UNKNOWN");
+                        //Console.WriteLine("Selected decision: UNKNOWN");
 
                         DecissionResponse decisionResponse1 = new DecissionResponse
                         {
@@ -111,9 +111,9 @@ namespace CB2DbQueryGovernance
                     string selectedChoice = bestChoice.Name;
                     double selectedProbability = bestChoice.Value.GetDouble();
 
-                    Console.WriteLine(
-                        $"Selected decision: {selectedChoice} " +
-                        $"(Probability: {selectedProbability:P2})");
+                    //Console.WriteLine(
+                    //    $"Selected decision: {selectedChoice} " +
+                    //    $"(Probability: {selectedProbability:P2})");
 
                     DecissionResponse decisionResponse = new DecissionResponse
                     {
@@ -137,7 +137,7 @@ namespace CB2DbQueryGovernance
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Exception occurred: {ex.Message}");
+                //Console.WriteLine($"Exception occurred: {ex.Message}");
                 DecissionResponse decisionResponse = new DecissionResponse
                 {
                     Value = "ERROR",
